@@ -59,14 +59,12 @@ function incorrectAnawer(){
 }
 
 function resetQuiz(){
-	let userInput = prompt("Would you like to try again? (yes/no)");
+	let userInput = prompt("Would you like to try again? (yes)");
 	if(userInput.toLowerCase() === 'yes'){
 		initialQuestionNumber = 0;
 		questionPage(initialQuestionNumber);
-	} else if (userInput.toLowerCase() === 'no'){
-		alert("Thanks for playing!")		
 	} else {
-		alert("Please reply with 'yes' or 'no'. Thanks!")
+		alert("Thanks for playing!")		
 	}
 }
 
