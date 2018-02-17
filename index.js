@@ -1,9 +1,11 @@
 let initialQuestionNumber = 0;
+let initialScore = 0;
 
 function questionPage(questionNumber){
 	// display quiz
 	$('main').html(
-		`<h2>${questions[questionNumber].question}</h2>
+		`<p>Current Score ${initialScore + "/" + questions.length}</p>
+		<h2>${questions[questionNumber].question}</h2>
 		<form id='questionForm'>
 			<fieldset>
 				<label class='answer'>
@@ -19,8 +21,7 @@ function questionPage(questionNumber){
 				<button id='d' class='answerButtons'>${questions[questionNumber].answer.d}</button>
 				</label>
 			</fieldset>
-		</form>
-		`
+		</form>`
 	);
 
 	// get user input
@@ -52,6 +53,7 @@ function validateAnswer(questionNumber, userInput){
 
 function correctAnswer(){
 	alert("Correct");
+	initialScore++;
 }
 
 function incorrectAnawer(){
@@ -64,12 +66,13 @@ function resetQuiz(){
 		initialQuestionNumber = 0;
 		questionPage(initialQuestionNumber);
 	} else {
-		alert("Thanks for playing!")		
+		alert("Thanks for playing!")
+		finalPage();		
 	}
 }
 
 function finalPage(){
-	console.log("Final page");
+	console.log("Your Score was " + initialScore + "/" + questions.length);
 }
 
 function handleStart(){
