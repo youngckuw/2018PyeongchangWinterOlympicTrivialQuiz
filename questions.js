@@ -48,54 +48,54 @@ const questions = [
 		d: "7 days"
 	},
 	correctAnswer: "c"
-// },
-// {
-// 	question: "How many times has the hosting country, South Korea, ever won a medal in snow games?",
-// 	answer: {
-// 		a: "None (0)",
-// 		b: "One (1)",
-// 		c: "Seven (7)",
-// 		d: "Twenty Two (22)"
-// 	},
-// 	correctAnswer: "a"
-// },
-// {
-// 	question: "In year 2022, next Winter Olympic will be hosted from which contury?",
-// 	answer: {
-// 		a: "Japan",
-// 		b: "Canada",
-// 		c: "United States",
-// 		d: "China"
-// 	},
-// 	correctAnswer: "d"
-// },
-// {
-// 	question: "Pyoungchang 2018 Olympic games will include one (1) Puerto Rico athlete. Which game(s) will s/he play?",
-// 	answer: {
-// 		a: "Alpine skiing",
-// 		b: "Bobsleigh",
-// 		c: "Figure skating",
-// 		d: "Speed skating"
-// 	},
-// 	correctAnswer: "a"
-// },
-// {
-// 	question: "What is the official slogan for Winter Olympic?",
-// 	answer: {
-// 		a: "Celebration",
-// 		b: "Passion, Connected",
-// 		c: "Peace and Love",
-// 		d: "Freinds Forever"
-// 	},
-// 	correctAnswer: "b"
-// },
-// {
-// 	question: "Which games will feature unified South and North korea play?",
-// 	answer: {
-// 		a: "Biathlon",
-// 		b: "Nordic Combined",
-// 		c: "Curling",
-// 		d: "Ice Hockey"
-// 	},
-// 	correctAnswer: "d"
+},
+{
+	question: "How many times has the hosting country, South Korea, ever won a medal in snow games?",
+	answer: {
+		a: "None (0)",
+		b: "One (1)",
+		c: "Seven (7)",
+		d: "Twenty Two (22)"
+	},
+	correctAnswer: "a"
+},
+{
+	question: "In year 2022, next Winter Olympic will be hosted from which contury?",
+	answer: {
+		a: "Japan",
+		b: "Canada",
+		c: "United States",
+		d: "China"
+	},
+	correctAnswer: "d"
+},
+{
+	question: "Pyoungchang 2018 Olympic games will include one (1) Puerto Rico athlete. Which game(s) will s/he play?",
+	answer: {
+		a: "Alpine skiing",
+		b: "Bobsleigh",
+		c: "Figure skating",
+		d: "Speed skating"
+	},
+	correctAnswer: "a"
+},
+{
+	question: "What is the official slogan for Winter Olympic?",
+	answer: {
+		a: "Celebration",
+		b: "Passion, Connected",
+		c: "Peace and Love",
+		d: "Freinds Forever"
+	},
+	correctAnswer: "b"
+},
+{
+	question: "Which games will feature unified South and North korea play?",
+	answer: {
+		a: "Biathlon",
+		b: "Nordic Combined",
+		c: "Curling",
+		d: "Ice Hockey"
+	},
+	correctAnswer: "d"
 }]

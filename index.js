@@ -1,85 +1,84 @@
-let initialQuestionNumber = 0;
-let initialScore = 0;
+'use strict'
 
-function questionPage(questionNumber){
-	// display quiz
+let score = 0;
+let questionNumber = 0;
+
+function displayQuiz(){
 	$('main').html(
-		`<p>Current Score ${initialScore + "/" + questions.length}</p>
-		<h2>${questions[questionNumber].question}</h2>
-		<form id='questionForm'>
-			<fieldset>
-				<label class='answer'>
-					<button id='a' class='answerButtons'>${questions[questionNumber].answer.a}</button>
-				</label>
-				<label class='answer'>
-					<button id='b' class='answerButtons'>${questions[questionNumber].answer.b}</button>
-				</label>
-				<label class='answer'>
-					<button id='c' class='answerButtons'>${questions[questionNumber].answer.c}</button>
-				</label>
-				<label class='answer'>
-				<button id='d' class='answerButtons'>${questions[questionNumber].answer.d}</button>
-				</label>
-			</fieldset>
-		</form>`
-	);
+		`<p>Current Score ${score + "/" + questions.length}</p>
+		 <h2>${questions[questionNumber].question}</h2> 
+		 <form id='questionForm' action="/some-server-endpoint" method ='post'> 
+		 <fieldset name='answerChoices'> 
+		 <div><label><input type='radio' name='answer' id='a' required>${questions[questionNumber].answer.a}</label></div> 
+		 <div><label><input type='radio' name='answer' id='b' required>${questions[questionNumber].answer.b}</label></div>
+		 <div><label><input type='radio' name='answer' id='c' required>${questions[questionNumber].answer.c}</label></div> 
+		 <div><label><input type='radio' name='answer' id='d' required>${questions[questionNumber].answer.d}</label></div> 
+		 </fieldset> <button type='submit'>Submit</button> </form>
+		`);
+};
 
-	// get user input
-	$('.answerButtons').click(function(event){
-		event.preventDefault();
-		initialQuestionNumber++;
-		userInput = $(this)[0].id;
-		validateAnswer(initialQuestionNumber, userInput);		
+function handleStartButton(){
+	$('#start-btn').on('click', this, function(event){
+		displayQuiz();	
+	})
+}
+
+function displayCongrats(){
+	$('main').html(`<h1>Conguratuation! \nYou have finished the quiz. \nYour score was ${score + "/" + questions.length}.</h1><div><button id='try-again'>TRY AGAIN?</button></div>`);
+	$('#try-again').on('click', function(){
+		score = 0;
+		questionNumber = 0;
+		displayQuiz();
 	});
 }
 
-function validateAnswer(questionNumber, userInput){
-
-	let totalQuestions = questions.length;
-	console.log(questionNumber);
-
-	if(questionNumber === totalQuestions){
-		resetQuiz();
+function checkRemainingQuestions(questionNumber){
+	if(questionNumber === questions.length){
+		displayCongrats();
 	} else {
-		if(userInput === questions[questionNumber].correctAnswer){
-			correctAnswer();
-			questionPage(questionNumber)
-		} else {
-			incorrectAnawer();
-			questionPage(questionNumber)
-		}
-	}	
+		displayQuiz();
+	}
 }
 
 function correctAnswer(){
-	alert("Correct");
-	initialScore++;
+	$('#questionForm').html("<h1>You are correct!</h1><div><button id='next'>NEXT</button></div>");
+	score++
+	$('#next').click(function(event){
+		event.preventDefault();
+		questionNumber++;
+		checkRemainingQuestions(questionNumber);	
+	});
+};
+
+function incorrectAnswer(){
+	let displayAnswer = questions[questionNumber].correctAnswer;
+	$('#questionForm').html(`<h1>Correct answer was ${displayAnswer.toUpperCase()}</h1><div><button id='next'>NEXT</button></div>`);
+	$('#next').click(function(event){
+		event.preventDefault();
+		questionNumber++;
+		checkRemainingQuestions(questionNumber);
+	});
 }
 
-function incorrectAnawer(){
-	alert("Incorrect");
-}
-
-function resetQuiz(){
-	let userInput = prompt("Would you like to try again? (yes)");
-	if(userInput.toLowerCase() === 'yes'){
-		initialQuestionNumber = 0;
-		questionPage(initialQuestionNumber);
+function validateAnswer(questionId, answer){
+	if(answer === questions[questionId].correctAnswer){
+		correctAnswer();
 	} else {
-		alert("Thanks for playing!")
-		finalPage();		
+		incorrectAnswer();
 	}
 }
 
-function finalPage(){
-	console.log("Your Score was " + initialScore + "/" + questions.length);
+function handleSubmitButton(){
+	$('main').on('submit', function(event){
+		event.preventDefault();		
+		const userInput = $('input:checked')[0].id;
+		validateAnswer(questionNumber, userInput);
+	})
 }
 
-function handleStart(){
-	// handle start button
-	$('#start-btn').click(function() {
-		questionPage(initialQuestionNumber);
-	}
-)}
+function startQuiz(){
+	handleStartButton();
+	handleSubmitButton();
+}
 
-handleStart();
+startQuiz();
