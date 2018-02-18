@@ -9,11 +9,12 @@ function displayQuiz(){
 		 <h2>${questions[questionNumber].question}</h2> 
 		 <form id='questionForm' action="/some-server-endpoint" method ='post'> 
 		 <fieldset name='answerChoices'> 
-		 <div><label><input type='radio' name='answer' id='a' required>${questions[questionNumber].answer.a}</label></div> 
-		 <div><label><input type='radio' name='answer' id='b' required>${questions[questionNumber].answer.b}</label></div>
-		 <div><label><input type='radio' name='answer' id='c' required>${questions[questionNumber].answer.c}</label></div> 
-		 <div><label><input type='radio' name='answer' id='d' required>${questions[questionNumber].answer.d}</label></div> 
-		 </fieldset> <button type='submit'>Submit</button> </form>
+		 <div><label><input type='radio' name='answer' id='a' required><span>\t${questions[questionNumber].answer.a}</span></label></div> 
+		 <div><label><input type='radio' name='answer' id='b' required><span>\t${questions[questionNumber].answer.b}</span></label></div>
+		 <div><label><input type='radio' name='answer' id='c' required><span>\t${questions[questionNumber].answer.c}</span></label></div> 
+		 <div><label><input type='radio' name='answer' id='d' required><span>\t${questions[questionNumber].answer.d}</span></label></div> 
+		 </fieldset> 
+		 <div id='submitArea'><button type='submit'>Submit</button></div></form>
 		`);
 };
 
@@ -24,7 +25,7 @@ function handleStartButton(){
 }
 
 function displayCongrats(){
-	$('main').html(`<h1>Conguratuation! \nYou have finished the quiz. \nYour score was ${score + "/" + questions.length}.</h1><div><button id='try-again'>TRY AGAIN?</button></div>`);
+	$('main').html(`<h2>Conguratuation!</h2>\n<h2>You have finished the quiz.</h2>\n<h2>Your score was ${score + "/" + questions.length}.</h2><div><button id='try-again'>TRY AGAIN?</button></div>`);
 	$('#try-again').on('click', function(){
 		score = 0;
 		questionNumber = 0;
@@ -41,7 +42,7 @@ function checkRemainingQuestions(questionNumber){
 }
 
 function correctAnswer(){
-	$('#questionForm').html("<h1>You are correct!</h1><div><button id='next'>NEXT</button></div>");
+	$('#submitArea').empty().append("<h2>You are correct!</h2><div><button id='next'>NEXT</button></div>");
 	score++
 	$('#next').click(function(event){
 		event.preventDefault();
@@ -52,7 +53,7 @@ function correctAnswer(){
 
 function incorrectAnswer(){
 	let displayAnswer = questions[questionNumber].correctAnswer;
-	$('#questionForm').html(`<h1>Correct answer was ${displayAnswer.toUpperCase()}</h1><div><button id='next'>NEXT</button></div>`);
+	$('#submitArea').empty().append(`<h2>Correct answer was ${displayAnswer.toUpperCase()}</h2><div><button id='next'>NEXT</button></div>`);
 	$('#next').click(function(event){
 		event.preventDefault();
 		questionNumber++;

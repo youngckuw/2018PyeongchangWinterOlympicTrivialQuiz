@@ -90,7 +90,7 @@ const questions = [
 	correctAnswer: "b"
 },
 {
-	question: "Which games will feature unified South and North korea play?",
+	question: "Which games will feature unified South and North Korea play?",
 	answer: {
 		a: "Biathlon",
 		b: "Nordic Combined",

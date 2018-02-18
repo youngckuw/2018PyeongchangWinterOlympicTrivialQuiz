@@ -1,27 +1,40 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
 header, main, footer {
 	background-color: lightgray;
 	padding: 40px;
 	border: solid 1px black;
+	margin: 0px auto;
+	text-align: center;
+}
+
+form {
+	/*border: solid 1px red;*/
 	margin: 0 auto;
 	text-align: center;
 }
 
+fieldset {
+	padding: 10px;
+	margin: 10px auto;	
+	width: 50%;
+	/*border: solid 1px green;*/
+	text-align: left;
+}
+
 button {
 	font-size: 24px;
-	width: 250px;
-	height: 50px;
-	display: block;
-	margin: 0 auto;
+	width: 200px;
+	height: 35px;
+	margin: 10px auto;
 }
 
-button:hover {
-	background-color: white;
-	color: black;
+p {
+	font-size: 16px;
 }
 
-#logo {
-	width: 50px;
-	height: 50px;	
-	display: block;
-	margin: 0 auto;
+div {
+	margin-top: 10px;
 }
