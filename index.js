@@ -53,7 +53,7 @@ function correctAnswer(){
 
 function incorrectAnswer(){
 	let displayAnswer = questions[questionNumber].correctAnswer;
-	$('#submitArea').empty().append(`<h2>Correct answer was ${displayAnswer.toUpperCase()}</h2><div><button id='next'>NEXT</button></div>`);
+	$('#submitArea').empty().append(`<h2>"Sorry! The correct answer was '${questions[questionNumber].answer[displayAnswer]}'!"</h2><div><button id='next'>NEXT</button></div>`);
 	$('#next').click(function(event){
 		event.preventDefault();
 		questionNumber++;
