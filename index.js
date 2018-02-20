@@ -6,6 +6,7 @@ let questionNumber = 0;
 function displayQuiz(){
 	$('main').html(
 		`<p>Current Score ${score + "/" + questions.length}</p>
+		 <p>Question Number ${questionNumber + "/" + questions.length}</p>
 		 <h2>${questions[questionNumber].question}</h2> 
 		 <form id='questionForm' action="/some-server-endpoint" method ='post'> 
 		 <fieldset name='answerChoices'> 
@@ -51,9 +52,10 @@ function correctAnswer(){
 	});
 };
 
-function incorrectAnswer(){
-	let displayAnswer = questions[questionNumber].correctAnswer;
-	$('#submitArea').empty().append(`<h2>Correct answer was ${displayAnswer.toUpperCase()}</h2><div><button id='next'>NEXT</button></div>`);
+function incorrectAnswer(questionNumber){
+	let correctAnswerKey = questions[questionNumber].correctAnswer;
+
+	$('#submitArea').empty().append(`<h2>Correct answer was ${questions[questionNumber].answer[correctAnswerKey]}</h2><div><button id='next'>NEXT</button></div>`);
 	$('#next').click(function(event){
 		event.preventDefault();
 		questionNumber++;
@@ -61,11 +63,11 @@ function incorrectAnswer(){
 	});
 }
 
-function validateAnswer(questionId, answer){
-	if(answer === questions[questionId].correctAnswer){
+function validateAnswer(questionNumber, userInput){
+	if(userInput === questions[questionNumber].correctAnswer){
 		correctAnswer();
 	} else {
-		incorrectAnswer();
+		incorrectAnswer(questionNumber);
 	}
 }
 
