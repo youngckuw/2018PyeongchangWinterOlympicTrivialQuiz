@@ -16,17 +16,12 @@ html{
 }
 
 body {
-	background-color: lightgray;
+	background-color: #EDEDED;
 }
 
 footer {
-	background-image: linear-gradient(#0086CD, #66B6E9);
 	text-align: center;
 	font-size: 12px;
-}
-
-main {
-	background-image: linear-gradient(lightgray, white);
 }
 
 main, button {
@@ -34,7 +29,6 @@ main, button {
 }
 
 header {
-	background-image: linear-gradient(#E84560, #ED7B70);
 	text-align: center;	
 }
 

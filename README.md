@@ -3,5 +3,4 @@ Trivial quiz on 2018 Pyeongchang Winter Olympic. HTML, CSS, JavaScript, jQuery.
 
 Interactive site is available at following URLs, otherwise simply download all files in same folder and launch index.html. Cheers. 
 
-https://repl.it/@youngckuw/2018PyeongchangWinterOlympicTrivialQuiz
 https://youngckuw.github.io/2018PyeongchangWinterOlympicTrivialQuiz
