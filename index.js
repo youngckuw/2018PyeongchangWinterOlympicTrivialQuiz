@@ -16,17 +16,6 @@ function displayQuiz(){
 		 </fieldset>
 		 <div id='submitArea'><button type='submit'>Submit</button></div></form>
 		`);
-	$('label').css({
-		'display': 'block',
-		'font-size': '2em'
-	});
-	$('#score').css('text-align', 'center');
-	$('fieldset').css({
-		'margin': '10px auto',
-		'width': '90%',
-		'text-align': 'left'
-	});
-	$('input[type=radio]').css('transform', 'scale(1.5)');
 };
 
 function handleStartButton(){
