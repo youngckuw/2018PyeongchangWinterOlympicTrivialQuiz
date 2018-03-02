@@ -4,18 +4,23 @@ let score = 0;
 let questionNumber = 0;
 
 function displayQuiz(){
+	$('header h1').hide();
+
 	$('main').html(
-		`<div id='score'><p>Score ${score} | Question ${questionNumber + "/" + questions.length}</p></div>
-		 <div id='questionText'><h2>${questions[questionNumber].question}</h2></div> 
-		 <form id='questionForm' action="/some-server-endpoint" method ='post'> 
-		 <fieldset name='answerChoices'><legend><h2>Answers:</h2></legend>
-		 <label><input type='radio' name='answer' id='a' required><span>\t${questions[questionNumber].answer.a}</span></label> 
-		 <label><input type='radio' name='answer' id='b' required><span>\t${questions[questionNumber].answer.b}</span></label>
-		 <label><input type='radio' name='answer' id='c' required><span>\t${questions[questionNumber].answer.c}</span></label> 
-		 <label><input type='radio' name='answer' id='d' required><span>\t${questions[questionNumber].answer.d}</span></label> 
-		 </fieldset>
-		 <div id='submitArea'><button type='submit'>Submit</button></div></form>
-		`);
+		`<div id='questionText'><h2>${questions[questionNumber].question}</h2></div>
+		<form id='questionForm' action="/some-server-endpoint" method ='post'> 
+		<fieldset name='answerChoices'><legend><h2>Answers:</h2></legend>
+		<label><input type='radio' name='answer' id='a' required><span>\t${questions[questionNumber].answer.a}</span></label> 
+		<label><input type='radio' name='answer' id='b' required><span>\t${questions[questionNumber].answer.b}</span></label>
+		<label><input type='radio' name='answer' id='c' required><span>\t${questions[questionNumber].answer.c}</span></label> 
+		<label><input type='radio' name='answer' id='d' required><span>\t${questions[questionNumber].answer.d}</span></label> 
+		</fieldset>
+		<div id='submitArea'><button type='submit'>Submit</button></div></form>`
+	);
+
+	$('footer').html(
+		`<div id='score'><p>Score ${score} | Questions ${questionNumber + "/" + questions.length}</p></div>`
+	);	
 };
 
 function handleStartButton(){

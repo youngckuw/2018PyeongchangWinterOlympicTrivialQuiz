@@ -1,47 +1,43 @@
-
-.olympicWebsite {
-	text-align: right;
-}
-
-.personalInfo {
-	text-align: left;
-}
-
 * {
 	font-family: 'Roboto', sans-serif;
 }
 
+span, #score {
+	font-size: 1.7em;
+}
+
 html{
-	margin-top: 40px;
+	height: 100%;
 }
 
 body {
 	background-color: #EDEDED;
 }
 
-footer {
-	text-align: center;
-	font-size: 12px;
-}
-
-main, button {
-	text-align: center;
-}
-
-header {
-	text-align: center;	
-}
-
 header, main, footer {
 	width: 90%;
 	padding: 10px;
-	border: solid 1px black;
 	margin: 0px auto;
+	text-align: center;	
+}
+
+form div div, footer div p {
+	padding: 0px;
+	margin: 0px;
+}
+
+form div {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+main {
+	border-top: solid 1px black;
 }
 
 button {
-	font-size: 30px;
-	width: 25%;
+	font-size: 25px;
+	width: 30%;
 	margin: 10px auto;
 	background-color: lightgray; 
 }
@@ -53,4 +49,9 @@ form div {
 #logo {
 	width: 141px;
 	height: 141px;
+}
+
+label {
+	display: block;
+	text-align: left;
 }
