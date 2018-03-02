@@ -2,12 +2,9 @@
 	font-family: 'Roboto', sans-serif;
 }
 
-span, #score {
-	font-size: 1.7em;
-}
-
 html{
 	height: 100%;
+	width: 100%;
 }
 
 body {
@@ -15,6 +12,7 @@ body {
 }
 
 header, main, footer {
+	font-size: 3em;
 	width: 90%;
 	padding: 10px;
 	margin: 0px auto;
@@ -36,7 +34,7 @@ main {
 }
 
 button {
-	font-size: 25px;
+	font-size: 1.1em;
 	width: 30%;
 	margin: 10px auto;
 	background-color: lightgray; 
@@ -54,4 +52,9 @@ form div {
 label {
 	display: block;
 	text-align: left;
+}
+
+legend {
+	margin: none;
+	padding: none;
 }

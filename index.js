@@ -9,7 +9,7 @@ function displayQuiz(){
 	$('main').html(
 		`<div id='questionText'><h2>${questions[questionNumber].question}</h2></div>
 		<form id='questionForm' action="/some-server-endpoint" method ='post'> 
-		<fieldset name='answerChoices'><legend><h2>Answers:</h2></legend>
+		<fieldset name='answerChoices'><legend><p>Answers:</p></legend>
 		<label><input type='radio' name='answer' id='a' required><span>\t${questions[questionNumber].answer.a}</span></label> 
 		<label><input type='radio' name='answer' id='b' required><span>\t${questions[questionNumber].answer.b}</span></label>
 		<label><input type='radio' name='answer' id='c' required><span>\t${questions[questionNumber].answer.c}</span></label> 
@@ -30,7 +30,7 @@ function handleStartButton(){
 }
 
 function displayCongrats(){
-	$('main').html(`<h2>Conguratuation!</h2>\n<h2>You have finished the quiz.</h2>\n<h2>Your score was ${score + "/" + questions.length}.</h2><div><button id='try-again'>TRY AGAIN?</button></div>`);
+	$('main').html(`<p>Conguratuation!</p>\n<p>You have finished the quiz.</p>\n<p>Your score was ${score + "/" + questions.length}.</p><div><button id='try-again'>TRY AGAIN?</button></div>`);
 	$('#try-again').on('click', function(){
 		score = 0;
 		questionNumber = 0;
@@ -47,7 +47,7 @@ function checkRemainingQuestions(questionNumber){
 }
 
 function correctAnswer(){
-	$('#submitArea').empty().append("<h2>You are correct!</h2><div><button id='next'>NEXT</button></div>");
+	$('#submitArea').empty().append("<p>You are correct!</p><div><button id='next'>NEXT</button></div>");
 	score++
 	$('#next').click(function(event){
 		event.preventDefault();
@@ -58,7 +58,7 @@ function correctAnswer(){
 
 function incorrectAnswer(){
 	let displayAnswer = questions[questionNumber].correctAnswer;
-	$('#submitArea').empty().append(`<h2>"The correct answer was '${questions[questionNumber].answer[displayAnswer]}'!"</h2><div><button id='next'>NEXT</button></div>`);
+	$('#submitArea').empty().append(`<p>"The correct answer was '${questions[questionNumber].answer[displayAnswer]}'!"</p><div><button id='next'>NEXT</button></div>`);
 	$('#next').click(function(event){
 		event.preventDefault();
 		questionNumber++;
