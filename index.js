@@ -7,7 +7,7 @@ function displayQuiz(){
 	$('header h1').hide();
 
 	$('main').html(
-		`<div id='questionText'><h2>${questions[questionNumber].question}</h2></div>
+		`<div id='questionText'><p>${questions[questionNumber].question}</p></div>
 		<form id='questionForm' action="/some-server-endpoint" method ='post'> 
 		<fieldset name='answerChoices'><legend><p>Answers:</p></legend>
 		<label><input type='radio' name='answer' id='a' required>
