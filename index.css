@@ -1,46 +1,22 @@
 * {
 	font-family: 'Roboto', sans-serif;
-}
-
-html{
-	height: 100%;
-	width: 100%;
+	text-align: center;
+	background-color: #EDEDED;
 }
 
 body {
-	background-color: #EDEDED;
-	font-size: 150%;
+	font-size: 150%;	
 }
 
-header, main, footer {
-	max-width: 320px;
-	padding: 10px;
-	margin: 0px auto;
-	text-align: center;	
-}
-
-form div div, footer div p {
+footer div p {
 	padding: 0px;
 	margin: 0px;
 }
 
-form div {
-	padding-bottom: 0px;
-	margin-bottom: 0px;
-}
-
-main {
-	border-top: solid 1px black;
-}
-
 button {
-	font-size: 110%;
+	font-size: 75%;
 	margin: 10px auto;
 	background-color: lightgray; 
-}
-
-form div {
-	margin: 20px;
 }
 
 #logo {
@@ -56,4 +32,18 @@ label {
 legend p {
 	margin: 0px;
 	padding: 0px;
+}
+
+form {
+	width: 320px;
+	display: inline-block;
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+	#logo {
+		width: 75px;
+		height: 75px;
+	}
 }
